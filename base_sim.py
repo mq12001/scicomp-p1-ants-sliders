@@ -4,26 +4,78 @@ import pygame, sys, random
 from pygame.locals import *
 pygame.init()
 
+# Tweak
+tweak_delay = 2
+tweak_turning = 1
+
 # Sim Setup
-ants_grid = np.zeros(16, 16)
+ants_grid_x_y = 16
 anthill = [8, 8]
  
-# Game Setup
-BACKGROUND = (255, 255, 255)
+# Screen Setup
+BACKGROUND = 'gray'
 FPS = 60
-fpsClock = pygame.time.Clock()
+clock = pygame.time.Clock()
 WINDOW_WIDTH = 400
 WINDOW_HEIGHT = 300
  
 WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pygame.display.set_caption('Ants + Anthills')
- 
-# The main function that controls the game
+
+direction = {
+  0: [0, 1], 
+  1: [1, 1], 
+  2: [1, 0], 
+  3: [1, -1], 
+  4: [0, -1], 
+  5: [-1, -1], 
+  6: [-1, 0], 
+  7: [-1, 1]
+}
+
+class Ant:
+  def __init__(self) -> None:
+    self.x = anthill[0]
+    self.y = anthill[1]
+    self.velocity = np.random.randint(7)
+
+  def move(self):
+    self.x += direction[self.velocity][0]
+    self.x += direction[self.velocity][1]
+    self.velocity = round(self.velocity + np.random.normal(scale = tweak_turning))%8
+
+  # def draw(self):
+    
+
+
+ants = []
+
+def first_spawn():
+  for _ in range(20):
+    ants.append(Ant())
+
+
+def update() :
+  for ant in ants:
+    ant.move()
+    # ant.draw()
+
+last_time = 0
+
+def time_step(delay) :
+  if pygame.time.get_ticks() > (last_time + delay):
+    last_time = pygame.time.get_ticks()
+    update()
+
+
 def main () :
+
   looping = True
-  
-  # The main game loop
+
+  first_spawn()
+  # The main  loop
   while looping :
+    clock.tick(FPS)
     # Get inputs
     for event in pygame.event.get() :
       if event.type == QUIT :
@@ -31,11 +83,10 @@ def main () :
         sys.exit()
     
     # Processing
-    # This section will be built out later
+    update()
  
-    # Render elements of the game
+    # Render
     WINDOW.fill(BACKGROUND)
     pygame.display.update()
-    fpsClock.tick(FPS)
  
 main()
