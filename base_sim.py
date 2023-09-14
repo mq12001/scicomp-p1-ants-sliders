@@ -41,11 +41,11 @@ class Ant:
 
   def move(self):
     self.x += direction[self.velocity][0]
-    self.x += direction[self.velocity][1]
+    self.y += direction[self.velocity][1]
     self.velocity = round(self.velocity + np.random.normal(scale = tweak_turning))%8
 
-  # def draw(self):
-    
+  def draw(self):
+    pygame.draw.rect(WINDOW, 'red',pygame.Rect(self.x + 50,self.y + 50, 5, 5))
 
 
 ants = []
@@ -58,7 +58,7 @@ def first_spawn():
 def update() :
   for ant in ants:
     ant.move()
-    # ant.draw()
+    ant.draw()
 
 last_time = 0
 
@@ -69,7 +69,7 @@ def time_step(delay) :
 
 
 def main () :
-
+  
   looping = True
 
   first_spawn()
@@ -83,10 +83,11 @@ def main () :
         sys.exit()
     
     # Processing
+    WINDOW.fill(BACKGROUND)
     update()
  
     # Render
-    WINDOW.fill(BACKGROUND)
-    pygame.display.update()
+
+    pygame.display.flip()
  
 main()
