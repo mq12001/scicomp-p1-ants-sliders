@@ -19,7 +19,7 @@ tweak_turning = .3
 carrying_capacity = 100
 
 # Sim Setup
-num_squares_side = 150
+num_squares_side = 170
 square_size = 3
 anthill = [num_squares_side/2, num_squares_side/2]
 pheromone_grid = np.zeros((num_squares_side, num_squares_side))
@@ -62,15 +62,15 @@ class Ant:
 
     def turn(self):
         max_direction = None
-        max = 1
-        for angle in [0, 1, 2, 6, 7]:
+        max = 0
+        for angle in [0, 1, 7, 6, 2]:
             direction = (self.velocity + angle) % 8
             if self.detected[direction] > max:
                 max_direction = direction
                 max = self.detected[direction]
 
         get_confused = np.random.rand()  # *(max/carrying_capacity)
-        if get_confused < .25:
+        if get_confused < .4:
             max_direction = None
 
         if max_direction == None:
@@ -95,7 +95,7 @@ ants = []
 
 
 def first_spawn():
-    for _ in range(400):
+    for _ in range(200):
         ants.append(Ant())
 
 
@@ -109,8 +109,8 @@ def draw_grid():
     for row in pheromone_grid:
         x = 0  # for every row we start at the left of the screen again
         for pheromone in row:
-            f = max(0, pheromone / carrying_capacity)  # 55 117 33
-            color = (59 - 4*f, 117 - 92*f, 33 - 33*f)
+            f = max(0, pheromone / carrying_capacity)  # 135 116 72 -> 97 65 15
+            color = (135 - 38*f, 116 - 51*f, 72 - 57*f)
 
             pygame.draw.rect(WINDOW, color, [c_projection(
                 x), c_projection(y), square_size, square_size])
@@ -136,6 +136,19 @@ def main():
 
     looping = True
 
+    img = pygame.image.load("img/grass.png").convert()
+    imageWidth, imageHeight = img.get_size()
+    tilesX = int(np.ceil(WINDOW_WIDTH / imageWidth))
+    tilesY = int(np.ceil(WINDOW_HEIGHT / imageHeight))
+
+    # Loop over both and blit accordingly
+    for x in range(tilesX):
+        for y in range(tilesY):
+            WINDOW.blit(img, (.8*x * imageWidth, .8*y * imageHeight))
+
+    pygame.draw.rect(WINDOW, (97, 65, 15), [c_projection(
+        -3), c_projection(-3), square_size*(num_squares_side+6), square_size*(num_squares_side+6)])
+
     first_spawn()
     # The main  loop
     while looping:
@@ -147,7 +160,6 @@ def main():
                 sys.exit()
 
         # Processing
-        WINDOW.fill(BACKGROUND)
         update()
 
         # Render
