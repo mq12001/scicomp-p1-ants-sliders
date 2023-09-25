@@ -6,10 +6,11 @@ In this project, we were instructed to read and attempt to replicate the finding
 
 Some example images from that paper include:
 
-![image](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/5514fad4-e492-4c50-a02b-5a72f632a8a7)
-![image](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/db687abc-9007-4d1e-af98-5141c3b6ff0d)
-![image](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/fe56df71-83b2-4cc0-a5af-b75132de4f26)
-![image](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/f41ad7b0-1d6c-4c78-8112-74c874dfd6c0)
+![Screenshot from 2023-09-25 02-10-04](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/2765776b-a7d7-4e59-b767-94495c1c12dc)
+![Screenshot from 2023-09-25 02-10-54](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/97cdafad-5e21-4b3d-bc95-c71b71600510)
+![Screenshot from 2023-09-25 02-11-24](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/79960367-eb4b-48b5-b54e-0add2b29146e)
+![Screenshot from 2023-09-25 02-12-16](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/034a3ef0-e2ea-4282-bfb4-8f2dbc10a77e)
+
 
 ## For those that have read the paper
 If you haven't read this paper or don't have previous knowledge of this project, you may find the "General Description" section more helpful.
@@ -42,11 +43,10 @@ First, I represented both the pheromone trails and the actual ants, where the pa
 
 Second, I added some color! Below, see images of my implementation, with various initial conditions:
 
-
-![image](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/67ed7ea6-7f48-48dc-b3ba-93ad99a537fd)
-![image](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/4e786b2f-23cf-444f-8c5c-5f92a1f4dbbb)
-![image](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/46de6d7d-e916-4b9a-941a-8600c8db5f34)
-![image](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/9bf8b642-7bc9-400c-8dce-84a4676f1338)
+![Screenshot from 2023-09-25 02-48-28](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/7af88b69-679a-4c92-aab9-128f24e330e1)
+![Screenshot from 2023-09-25 02-49-04](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/9ca64f4d-9b1d-4973-b18e-5cde966b2a13)
+![Screenshot from 2023-09-25 02-49-44](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/1b5ab83f-a5ce-4e24-b030-a6b15b88656e)
+![Screenshot from 2023-09-25 02-50-26](https://github.com/olincollege/scicomp-p1-ants-sliders/assets/95325894/b717263a-c413-4c51-9448-652014d9a007)
 
 
 
