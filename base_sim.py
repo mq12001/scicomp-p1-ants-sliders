@@ -8,7 +8,7 @@ pygame.init()
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 800
 num_squares_side = 170
-square_size = 3
+square_size = 2
 
 # Animation Setup
 FPS = 60
@@ -19,7 +19,7 @@ pygame.display.set_caption('Ants + Anthills')
 # Sim-Defining Variables
 turning_kernel = .3
 carrying_capacity = 100
-fidelity = .7
+fidelity = .8
 deposition_rate = 10
 
 # Setup (Empty Variables, etc)
